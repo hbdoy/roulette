@@ -43,4 +43,4 @@ var originData = {
 - Bootstrap
 
 ## License
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](LICENSE)
