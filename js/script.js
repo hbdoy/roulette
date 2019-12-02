@@ -139,9 +139,9 @@ var ans = "";
           for (let item of data[ans].data) {
             if (!item.show) {
               if (item.fileType == "image") {
-                contentImg += `<div class='col-3'><img class='img-fluid' src='./media/${ans}/${item.fileName}'></div>`;
+                contentImg += `<div class='col-12 col-md-3'><img class='img-fluid' src='./media/${ans}/${item.fileName}'></div>`;
               } else if (item.fileType == "audio") {
-                contentAudio += `<div class='col-4'><audio controls><source src="./media/${ans}/${item.fileName}" type="audio/mpeg"></audio></div>`;
+                contentAudio += `<div class='col-12 col-md-4'><audio controls><source src="./media/${ans}/${item.fileName}" type="audio/mpeg"></audio></div>`;
               }
             }
           }
