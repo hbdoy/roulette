@@ -118,3 +118,7 @@ button {
 .sticky-footer {
 	flex-shrink: none;
 }
+
+.resetBtn {
+	font-weight: bold;
+}
