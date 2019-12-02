@@ -176,7 +176,7 @@ $(function () {
     for (let item in data) {
       content += `<div class='col-md-4 col-6'>
           <div class='question ${item} my-2' data-ans='${item}' data-status='${data[item].status}'>
-            <img class='img-fluid' width='150px' src='${data[item].status == "success" ? "./img/" + data[item].photo : "./img/people.png"}'>
+            <img class='img-fluid' width='150px' src='${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}'>
           </div>
         </div>`;
     }
@@ -190,7 +190,7 @@ $(function () {
         });
       } else if ($(this).data("status") == "fail") {
         $(this).css({
-          backgroundColor: "grey",
+          backgroundColor: "red",
           color: "white"
         });
       }
@@ -236,7 +236,7 @@ $(function () {
         $(`.${ans}`).css({
           backgroundColor: "green"
         });
-        $(`.${ans} img`).attr("src", `./img/${data[ans].photo}`);
+        $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
         data[ans].status = "success";
         syncData();
       }
