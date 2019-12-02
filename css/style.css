@@ -2,6 +2,10 @@ html, body {
 	background-color: #EEEEEE;
 }
 
+#wrapper {
+	min-height: 90vh;
+}
+
 html, body, button {
 	font-family: Arial, Dotum, Gulim, "Apple SD Gothic Neo", AppleGothic, sans-serif;
 }
@@ -110,3 +114,7 @@ button {
 /* .modal, .blocker {
 	z-index: 50 !important;
 } */
+
+.sticky-footer {
+	flex-shrink: none;
+}
