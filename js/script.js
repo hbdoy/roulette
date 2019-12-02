@@ -243,6 +243,7 @@ $(function () {
         $(`.${ans} div`).html(`姓名: ${ans}`);
         data[ans].status = "success";
         syncData();
+        chooseQuestionStatus();
       }
     })
 
@@ -251,9 +252,11 @@ $(function () {
         $(`.${ans}`).css({
           backgroundColor: "#F8D7DA"
         });
+        $(`.${ans} img`).attr("src", "./img/people.png");
         $(`.${ans} div`).html(`姓名: XXX`);
         data[ans].status = "fail";
         syncData();
+        chooseQuestionStatus();
       }
     })
 
