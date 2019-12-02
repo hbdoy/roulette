@@ -5,6 +5,9 @@
 
 ![](https://i.imgur.com/5rqXwn7.png)
 
+## Demo
+https://hbdoy.github.io/roulette
+
 ## Use
 1. 按照格式替換資料內容
 **js/data.js**
