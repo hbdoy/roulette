@@ -59,7 +59,10 @@ var ans = "";
           $roulette.children("." + itemSelector).eq(idx).children("." + labelSelector).css({
             "height": textH + 'px',
             "line-height": textH + 'px',
-            "transform": 'translateX(' + (textH * 1.3) + 'px) translateY(' + (wrapW * -.3) + 'px) rotateZ(' + (90 + d * .5) + 'deg)',
+            // 12格
+            // "transform": 'translateX(' + (textH * 1.3) + 'px) translateY(' + (wrapW * -.3) + 'px) rotateZ(' + (90 + d * .5) + 'deg)',
+            // 6格
+            "transform": 'translateX(' + (textH * 4) + 'px) translateY(' + (wrapW * -.3) + 'px) rotateZ(' + (90 + d * .5) + 'deg)',
             "color": data[ans].data[idx].show ? "white" : "grey"
           });
 

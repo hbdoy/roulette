@@ -26,27 +26,27 @@ var originData = {
                 fileName: "test.jpg",
                 show: true
             },
-            {
-                color: '#209b6c',
-                text: '困難',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
-            {
-                color: '#60b236',
-                text: '超困難',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
-            {
-                color: '#efe61f',
-                text: '地獄級',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
+            // {
+            //     color: '#209b6c',
+            //     text: '困難',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
+            // {
+            //     color: '#60b236',
+            //     text: '超困難',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
+            // {
+            //     color: '#efe61f',
+            //     text: '地獄級',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
             {
                 color: '#f7a416',
                 text: '送分題',
@@ -68,27 +68,27 @@ var originData = {
                 fileName: "test.mp3",
                 show: true
             },
-            {
-                color: '#e5177b',
-                text: '牛刀小試',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#be107f',
-                text: '祝你好運',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#881f7e',
-                text: '福利',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            }
+            // {
+            //     color: '#e5177b',
+            //     text: '牛刀小試',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // },
+            // {
+            //     color: '#be107f',
+            //     text: '祝你好運',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // },
+            // {
+            //     color: '#881f7e',
+            //     text: '福利',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // }
         ]
     },
     "Neil": {
@@ -116,27 +116,27 @@ var originData = {
                 fileName: "test.jpg",
                 show: true
             },
-            {
-                color: '#209b6c',
-                text: '困難',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
-            {
-                color: '#60b236',
-                text: '超困難',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
-            {
-                color: '#efe61f',
-                text: '地獄級',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
+            // {
+            //     color: '#209b6c',
+            //     text: '困難',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
+            // {
+            //     color: '#60b236',
+            //     text: '超困難',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
+            // {
+            //     color: '#efe61f',
+            //     text: '地獄級',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
             {
                 color: '#f7a416',
                 text: '送分題',
@@ -158,27 +158,27 @@ var originData = {
                 fileName: "test.mp3",
                 show: true
             },
-            {
-                color: '#e5177b',
-                text: '牛刀小試',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#be107f',
-                text: '祝你好運',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#881f7e',
-                text: '福利',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            }
+            // {
+            //     color: '#e5177b',
+            //     text: '牛刀小試',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // },
+            // {
+            //     color: '#be107f',
+            //     text: '祝你好運',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // },
+            // {
+            //     color: '#881f7e',
+            //     text: '福利',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // }
         ]
     },
     "Test": {
@@ -206,27 +206,27 @@ var originData = {
                 fileName: "test.jpg",
                 show: true
             },
-            {
-                color: '#209b6c',
-                text: '困難',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
-            {
-                color: '#60b236',
-                text: '超困難',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
-            {
-                color: '#efe61f',
-                text: '地獄級',
-                fileType: "image",
-                fileName: "test.jpg",
-                show: true
-            },
+            // {
+            //     color: '#209b6c',
+            //     text: '困難',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
+            // {
+            //     color: '#60b236',
+            //     text: '超困難',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
+            // {
+            //     color: '#efe61f',
+            //     text: '地獄級',
+            //     fileType: "image",
+            //     fileName: "test.jpg",
+            //     show: true
+            // },
             {
                 color: '#f7a416',
                 text: '送分題',
@@ -248,27 +248,27 @@ var originData = {
                 fileName: "test.mp3",
                 show: true
             },
-            {
-                color: '#e5177b',
-                text: '牛刀小試',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#be107f',
-                text: '祝你好運',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#881f7e',
-                text: '福利',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            }
+            // {
+            //     color: '#e5177b',
+            //     text: '牛刀小試',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // },
+            // {
+            //     color: '#be107f',
+            //     text: '祝你好運',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // },
+            // {
+            //     color: '#881f7e',
+            //     text: '福利',
+            //     fileType: "audio",
+            //     fileName: "test.mp3",
+            //     show: true
+            // }
         ]
     }
 };
