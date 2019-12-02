@@ -177,9 +177,10 @@ $(function () {
   function createQuestion() {
     var content = "";
     for (let item in data) {
-      content += `<div class='col-md-4 col-6'>
+      content += `<div class='col-md-4 col'>
           <div class='question ${item} my-2' data-ans='${item}' data-status='${data[item].status}'>
-            <img class='img-fluid' width='150px' src='${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}'>
+            <img width='180px' height='230px' src='${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}'>
+            <div style='font-weight: bold'>姓名: ${data[item].status == "success" ? item : "XXX"}</div>
           </div>
         </div>`;
     }
@@ -188,13 +189,11 @@ $(function () {
       // console.log($(this).data("status"));
       if ($(this).data("status") == "success") {
         $(this).css({
-          backgroundColor: "green",
-          color: "white"
+          backgroundColor: "#D4EDDA",
         });
       } else if ($(this).data("status") == "fail") {
         $(this).css({
-          backgroundColor: "red",
-          color: "white"
+          backgroundColor: "#F8D7DA",
         });
       }
     })
@@ -235,22 +234,24 @@ $(function () {
     })
 
     $("#right").click(function () {
-      if (confirm("繼續?")) {
+      if (confirm("確認此題答對?")) {
         // $(`.${ans}`).removeClass("question");
         $(`.${ans}`).css({
-          backgroundColor: "green"
+          backgroundColor: "#D4EDDA"
         });
         $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
+        $(`.${ans} div`).html(`姓名: ${ans}`);
         data[ans].status = "success";
         syncData();
       }
     })
 
     $("#wrong").click(function () {
-      if (confirm("繼續?")) {
+      if (confirm("確認此題答錯?")) {
         $(`.${ans}`).css({
-          backgroundColor: "red"
+          backgroundColor: "#F8D7DA"
         });
+        $(`.${ans} div`).html(`姓名: XXX`);
         data[ans].status = "fail";
         syncData();
       }
