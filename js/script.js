@@ -222,6 +222,7 @@ $(function () {
     $("#allQuestion").on("click", ".question", function () {
       // console.log(this.dataset.ans);
       ans = this.dataset.ans;
+      $('.roulette').html("");
       $('.box-roulette').roulette();
       ansQuestionStatus();
     })
