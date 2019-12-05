@@ -30,12 +30,24 @@ var originData = {
 ```
 
 2. 想要重置抽取狀態可以點選畫面上的「重置資料」
-![](https://i.imgur.com/wlnw59a.png)
+![](https://i.imgur.com/2CDZLFR.png)
 
-3. 台上與使用者互動，若猜對可點選「答對」，則首頁的未知人物(?會變成他的個人照片；若答錯可點選「答錯」，則首頁的未知人物卡片背景會變成紅色，代表有使用猜題，但答題次數內未達對。
-![](https://i.imgur.com/ZcuUZgL.png)
+3. 台上與使用者互動，若猜對可點選「答對」，則首頁的未知人物會變成他的個人照片；若答錯可點選「答錯」，則首頁的未知人物卡片背景會變成紅色，代表有使用猜題，但答題次數內未達對。
+
+![](https://i.imgur.com/vR2EFUW.png)
+
+![](https://i.imgur.com/8jT6vrt.jpg)
 
 4. 抽取的資料狀態存放在 localstorage，請確認瀏覽器/版本支援
+
+## Update Log
+[2019/12/05]:
+- 將輪盤資料改為 6 格
+- 新增文字格式的素材
+- 調整問題圖片的外觀
+
+[2019/12/02]:
+- First Create
 
 ## Library
 - jQuery
