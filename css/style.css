@@ -117,6 +117,10 @@ button {
 	font-size: 20px;
 }
 
+.hide {
+	display: none;
+}
+
 .question:hover {
 	zoom: 1.1;
 }

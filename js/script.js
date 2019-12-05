@@ -186,7 +186,7 @@ $(function () {
     for (let item in data) {
       content += `<div class='col-md-4 col'>
           <div class='question ${item} my-2' data-ans='${item}' data-status='${data[item].status}'>
-            <div class="question-num">${i++}</div>
+            <div class="question-num ${data[item].status == "success" ? "hide" : ""}">${i++}</div>
             <img width='180px' height='230px' src='${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}'>
             <div class="question-name">姓名: ${data[item].status == "success" ? item : "XXX"}</div>
           </div>
