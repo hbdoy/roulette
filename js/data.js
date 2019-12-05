@@ -13,8 +13,8 @@ var originData = {
                 show: true
             },
             {
-                color: '#1d61ac',
-                text: '簡單',
+                color: '#209b6c',
+                text: '困難',
                 fileType: "image",
                 fileName: "test.jpg",
                 show: true
@@ -22,13 +22,34 @@ var originData = {
             {
                 color: '#169ed8',
                 text: '普通',
-                fileType: "image",
-                fileName: "test.jpg",
+                fileType: "text",
+                fileName: "紙包不住火，但包得住你",
+                show: true
+            },
+            {
+                color: '#f7a416',
+                text: '送分題',
+                fileType: "text",
+                fileName: "狼若回頭，不是報恩就是報仇",
+                show: true
+            },
+            {
+                color: '#e6471d',
+                text: '隨便猜',
+                fileType: "audio",
+                fileName: "test.mp3",
+                show: true
+            },
+            {
+                color: '#be107f',
+                text: '祝你好運',
+                fileType: "audio",
+                fileName: "test.mp3",
                 show: true
             },
             // {
-            //     color: '#209b6c',
-            //     text: '困難',
+            //     color: '#1d61ac',
+            //     text: '簡單',
             //     fileType: "image",
             //     fileName: "test.jpg",
             //     show: true
@@ -47,27 +68,6 @@ var originData = {
             //     fileName: "test.jpg",
             //     show: true
             // },
-            {
-                color: '#f7a416',
-                text: '送分題',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#e6471d',
-                text: '隨便猜',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#dc0936',
-                text: '保證會',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
             // {
             //     color: '#e5177b',
             //     text: '牛刀小試',
@@ -76,8 +76,8 @@ var originData = {
             //     show: true
             // },
             // {
-            //     color: '#be107f',
-            //     text: '祝你好運',
+            //     color: '#dc0936',
+            //     text: '保證會',
             //     fileType: "audio",
             //     fileName: "test.mp3",
             //     show: true
@@ -103,8 +103,8 @@ var originData = {
                 show: true
             },
             {
-                color: '#1d61ac',
-                text: '簡單',
+                color: '#209b6c',
+                text: '困難',
                 fileType: "image",
                 fileName: "test.jpg",
                 show: true
@@ -112,13 +112,34 @@ var originData = {
             {
                 color: '#169ed8',
                 text: '普通',
-                fileType: "image",
-                fileName: "test.jpg",
+                fileType: "text",
+                fileName: "紙包不住火，但包得住你",
+                show: true
+            },
+            {
+                color: '#f7a416',
+                text: '送分題',
+                fileType: "text",
+                fileName: "狼若回頭，不是報恩就是報仇",
+                show: true
+            },
+            {
+                color: '#e6471d',
+                text: '隨便猜',
+                fileType: "audio",
+                fileName: "test.mp3",
+                show: true
+            },
+            {
+                color: '#be107f',
+                text: '祝你好運',
+                fileType: "audio",
+                fileName: "test.mp3",
                 show: true
             },
             // {
-            //     color: '#209b6c',
-            //     text: '困難',
+            //     color: '#1d61ac',
+            //     text: '簡單',
             //     fileType: "image",
             //     fileName: "test.jpg",
             //     show: true
@@ -137,27 +158,6 @@ var originData = {
             //     fileName: "test.jpg",
             //     show: true
             // },
-            {
-                color: '#f7a416',
-                text: '送分題',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#e6471d',
-                text: '隨便猜',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#dc0936',
-                text: '保證會',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
             // {
             //     color: '#e5177b',
             //     text: '牛刀小試',
@@ -166,8 +166,8 @@ var originData = {
             //     show: true
             // },
             // {
-            //     color: '#be107f',
-            //     text: '祝你好運',
+            //     color: '#dc0936',
+            //     text: '保證會',
             //     fileType: "audio",
             //     fileName: "test.mp3",
             //     show: true
@@ -193,8 +193,8 @@ var originData = {
                 show: true
             },
             {
-                color: '#1d61ac',
-                text: '簡單',
+                color: '#209b6c',
+                text: '困難',
                 fileType: "image",
                 fileName: "test.jpg",
                 show: true
@@ -202,13 +202,34 @@ var originData = {
             {
                 color: '#169ed8',
                 text: '普通',
-                fileType: "image",
-                fileName: "test.jpg",
+                fileType: "text",
+                fileName: "紙包不住火，但包得住你",
+                show: true
+            },
+            {
+                color: '#f7a416',
+                text: '送分題',
+                fileType: "text",
+                fileName: "狼若回頭，不是報恩就是報仇",
+                show: true
+            },
+            {
+                color: '#e6471d',
+                text: '隨便猜',
+                fileType: "audio",
+                fileName: "test.mp3",
+                show: true
+            },
+            {
+                color: '#be107f',
+                text: '祝你好運',
+                fileType: "audio",
+                fileName: "test.mp3",
                 show: true
             },
             // {
-            //     color: '#209b6c',
-            //     text: '困難',
+            //     color: '#1d61ac',
+            //     text: '簡單',
             //     fileType: "image",
             //     fileName: "test.jpg",
             //     show: true
@@ -227,27 +248,6 @@ var originData = {
             //     fileName: "test.jpg",
             //     show: true
             // },
-            {
-                color: '#f7a416',
-                text: '送分題',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#e6471d',
-                text: '隨便猜',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
-            {
-                color: '#dc0936',
-                text: '保證會',
-                fileType: "audio",
-                fileName: "test.mp3",
-                show: true
-            },
             // {
             //     color: '#e5177b',
             //     text: '牛刀小試',
@@ -256,8 +256,8 @@ var originData = {
             //     show: true
             // },
             // {
-            //     color: '#be107f',
-            //     text: '祝你好運',
+            //     color: '#dc0936',
+            //     text: '保證會',
             //     fileType: "audio",
             //     fileName: "test.mp3",
             //     show: true

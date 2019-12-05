@@ -101,6 +101,20 @@ button {
 	background-color: rgb(241, 230, 216);
 	border-radius: 5px;
 	cursor: pointer;
+	position: relative;
+}
+
+.question-num {
+	position: absolute;
+	left: 78px;
+	top: 15px;
+	font-size: 40px;
+	color: white;
+}
+
+.question-name {
+	font-weight: bold;
+	font-size: 20px;
 }
 
 .question:hover {
@@ -121,4 +135,36 @@ button {
 
 .resetBtn {
 	font-weight: bold;
+}
+
+/* quote */
+
+blockquote {
+	quotes: "“ " " ”" "‘ " " ’";
+	/* font-style: italic; */
+	margin: 0 !important;
+	text-align: center;
+	background-color: #E6DBB3;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+blockquote:before {
+	content: open-quote;
+}
+
+blockquote:after {
+	content: close-quote;
+}
+
+blockquote:before, blockquote:after {
+	/* color: deepPink; */
+	font-size: 1.2em;
+}
+
+blockquote {
+	margin-left: 0 !important;
+	/* padding-left: 1em !important; */
+	border-left: 5px solid #93C7C0;
 }

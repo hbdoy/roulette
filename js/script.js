@@ -139,16 +139,20 @@ var ans = "";
         function showUsedMedia() {
           let contentImg = "";
           let contentAudio = "";
+          let contentText = "";
           for (let item of data[ans].data) {
             if (!item.show) {
               if (item.fileType == "image") {
                 contentImg += `<div class='col-12 col-md-3'><img class='img-fluid' src='./media/${ans}/${item.fileName}'></div>`;
               } else if (item.fileType == "audio") {
                 contentAudio += `<div class='col-12 col-md-4'><audio controls><source src="./media/${ans}/${item.fileName}" type="audio/mpeg"></audio></div>`;
+              } else if (item.fileType == "text") {
+                contentText += `<div class='col-12 col-md-4'><blockquote>${item.fileName}</blockquote></div>`;
               }
             }
           }
           $("#shownMedia .card-body .imgMedia").html(contentImg);
+          $("#shownMedia .card-body .textMedia").html(contentText);
           $("#shownMedia .card-body .voiceMedia").html(contentAudio);
         }
 
@@ -159,6 +163,8 @@ var ans = "";
             content = `<img class='img-fluid' src='./media/${ans}/${data[ans].data[index].fileName}'>`;
           } else if (data[ans].data[index].fileType == "audio") {
             content = `<audio controls><source src="./media/${ans}/${data[ans].data[index].fileName}" type="audio/mpeg"></audio>`;
+          } else if (data[ans].data[index].fileType == "text") {
+            content = `<blockquote>${data[ans].data[index].fileName}</blockquote>`;
           }
           $("#showGuessElement .modal-body").html(content);
           $("#showGuessElement").modal();
@@ -176,11 +182,13 @@ $(function () {
 
   function createQuestion() {
     var content = "";
+    var i = 1;
     for (let item in data) {
       content += `<div class='col-md-4 col'>
           <div class='question ${item} my-2' data-ans='${item}' data-status='${data[item].status}'>
+            <div class="question-num">${i++}</div>
             <img width='180px' height='230px' src='${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}'>
-            <div style='font-weight: bold'>姓名: ${data[item].status == "success" ? item : "XXX"}</div>
+            <div class="question-name">姓名: ${data[item].status == "success" ? item : "XXX"}</div>
           </div>
         </div>`;
     }
@@ -240,7 +248,8 @@ $(function () {
           backgroundColor: "#D4EDDA"
         });
         $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
-        $(`.${ans} div`).html(`姓名: ${ans}`);
+        $(`.${ans} .question-num`).hide();
+        $(`.${ans} .question-name`).html(`姓名: ${ans}`);
         data[ans].status = "success";
         syncData();
         chooseQuestionStatus();
@@ -253,7 +262,8 @@ $(function () {
           backgroundColor: "#F8D7DA"
         });
         $(`.${ans} img`).attr("src", "./img/people.png");
-        $(`.${ans} div`).html(`姓名: XXX`);
+        $(`.${ans} .question-num`).show();
+        $(`.${ans} .question-name`).html(`姓名: XXX`);
         data[ans].status = "fail";
         syncData();
         chooseQuestionStatus();
