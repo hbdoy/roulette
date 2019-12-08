@@ -30,6 +30,7 @@ var originData = {
 ```
 
 2. 想要重置抽取狀態可以點選畫面上的「重置資料」
+
 ![](https://i.imgur.com/2CDZLFR.png)
 
 3. 台上與使用者互動，若猜對可點選「答對」，則首頁的未知人物會變成他的個人照片；若答錯可點選「答錯」，則首頁的未知人物卡片背景會變成紅色，代表有使用猜題，但答題次數內未達對。
@@ -38,9 +39,17 @@ var originData = {
 
 ![](https://i.imgur.com/8jT6vrt.jpg)
 
-4. 抽取的資料狀態存放在 localstorage，請確認瀏覽器/版本支援
+4. 輪盤抽出之圖片、已解鎖之圖片新增 lightbox 來顯示
+
+![](https://i.imgur.com/Ce9pzKt.jpg)
+
+
+5. 抽取的資料狀態存放在 localstorage，請確認瀏覽器/版本支援
 
 ## Update Log
+[2019/12/08]:
+- lightbox 顯示圖片
+
 [2019/12/05]:
 - 將輪盤資料改為 6 格
 - 新增文字格式的素材
@@ -53,6 +62,7 @@ var originData = {
 - jQuery
 - jquery-rotate
 - Bootstrap
+- [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
 
 ## License
 [MIT](LICENSE)
