@@ -1,4 +1,7 @@
 var ans = "";
+var items = [];
+var unlockPhoto = [];
+var questionPhoto = [];
 
 (function ($) {
   $.fn.extend({
@@ -140,10 +143,16 @@ var ans = "";
           let contentImg = "";
           let contentAudio = "";
           let contentText = "";
+          unlockPhoto = [];
           for (let item of data[ans].data) {
             if (!item.show) {
               if (item.fileType == "image") {
-                contentImg += `<div class='col-12 col-md-3'><img class='img-fluid' src='./media/${ans}/${item.fileName}'></div>`;
+                contentImg += `<div class='col-12 col-md-3'><img class='img-fluid unlock-img' src='./media/${ans}/${item.fileName}'></div>`;
+                unlockPhoto.push({
+                  src: `./media/${ans}/${item.fileName}`,
+                  w: 1000,
+                  h: 1000
+                });
               } else if (item.fileType == "audio") {
                 contentAudio += `<div class='col-12 col-md-4'><audio controls><source src="./media/${ans}/${item.fileName}" type="audio/mpeg"></audio></div>`;
               } else if (item.fileType == "text") {
@@ -160,7 +169,12 @@ var ans = "";
         function createQueModalContent(index) {
           let content = "";
           if (data[ans].data[index].fileType == "image") {
-            content = `<img class='img-fluid' src='./media/${ans}/${data[ans].data[index].fileName}'>`;
+            content = `<img class='img-fluid question-img' src='./media/${ans}/${data[ans].data[index].fileName}'>`;
+            questionPhoto = [{
+              src: `./media/${ans}/${data[ans].data[index].fileName}`,
+              w: 1000,
+              h: 1000
+            }];
           } else if (data[ans].data[index].fileType == "audio") {
             content = `<audio controls><source src="./media/${ans}/${data[ans].data[index].fileName}" type="audio/mpeg"></audio>`;
           } else if (data[ans].data[index].fileType == "text") {
@@ -179,104 +193,124 @@ $(function () {
   chooseQuestionStatus();
   createQuestion();
   eventBind();
+});
 
-  function createQuestion() {
-    var content = "";
-    var i = 1;
-    for (let item in data) {
-      content += `<div class='col-md-4 col'>
+// 建立首頁人像
+function createQuestion() {
+  var content = "";
+  var i = 1;
+  for (let item in data) {
+    content += `<div class='col-md-4 col'>
           <div class='question ${item} my-2' data-ans='${item}' data-status='${data[item].status}'>
             <div class="question-num ${data[item].status == "success" ? "hide" : ""}">${i++}</div>
             <img width='180px' height='230px' src='${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}'>
             <div class="question-name">姓名: ${data[item].status == "success" ? item : "XXX"}</div>
           </div>
         </div>`;
+  }
+  $("#allQuestion .row").html(content);
+  $(".question").each(function () {
+    // console.log($(this).data("status"));
+    if ($(this).data("status") == "success") {
+      $(this).css({
+        backgroundColor: "#D4EDDA",
+      });
+    } else if ($(this).data("status") == "fail") {
+      $(this).css({
+        backgroundColor: "#F8D7DA",
+      });
     }
-    $("#allQuestion .row").html(content);
-    $(".question").each(function () {
-      // console.log($(this).data("status"));
-      if ($(this).data("status") == "success") {
-        $(this).css({
-          backgroundColor: "#D4EDDA",
-        });
-      } else if ($(this).data("status") == "fail") {
-        $(this).css({
-          backgroundColor: "#F8D7DA",
-        });
-      }
-    })
-    $('#allQuestion').show();
-  }
+  })
+  $('#allQuestion').show();
+}
 
-  function chooseQuestionStatus() {
-    ans = "";
-    $('#rouPage').hide();
-    $('#allQuestion').show();
-    $('#indexResetBtn').show();
-  }
+// 選題狀態
+function chooseQuestionStatus() {
+  ans = "";
+  $('#rouPage').hide();
+  $('#allQuestion').show();
+  $('#indexResetBtn').show();
+}
 
-  function ansQuestionStatus() {
-    $('#rouPage').show();
-    $('#allQuestion').hide();
-    $('#indexResetBtn').hide();
-  }
+// 答題狀態
+function ansQuestionStatus() {
+  $('#rouPage').show();
+  $('#allQuestion').hide();
+  $('#indexResetBtn').hide();
+}
 
-  function eventBind() {
-    $('.resetBtn').click(function () {
-      if (confirm("確定要重製資料嗎?")) {
-        resetData();
-        location.reload();
-      }
-    })
+// photo light box
+var reloadLightBox = function (photos = items) {
+  var pswpElement = document.querySelectorAll('.pswp')[0];
+  var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, photos);
+  gallery.init();
+}
 
-    $("#allQuestion").on("click", ".question", function () {
-      // console.log(this.dataset.ans);
-      ans = this.dataset.ans;
-      $('.roulette').html("");
-      $('.box-roulette').roulette();
-      ansQuestionStatus();
-    })
+function eventBind() {
+  $('.resetBtn').click(function () {
+    if (confirm("確定要重製資料嗎?")) {
+      resetData();
+      location.reload();
+    }
+  })
 
-    $("#goIndex").click(function () {
+  $("#allQuestion").on("click", ".question", function () {
+    // console.log(this.dataset.ans);
+    ans = this.dataset.ans;
+    $('.roulette').html("");
+    $('.box-roulette').roulette();
+    ansQuestionStatus();
+  })
+
+  $("#goIndex").click(function () {
+    chooseQuestionStatus();
+  })
+
+  $("#right").click(function () {
+    if (confirm("確認此題答對?")) {
+      // $(`.${ans}`).removeClass("question");
+      $(`.${ans}`).css({
+        backgroundColor: "#D4EDDA"
+      });
+      $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
+      $(`.${ans} .question-num`).hide();
+      $(`.${ans} .question-name`).html(`姓名: ${ans}`);
+      data[ans].status = "success";
+      syncData();
       chooseQuestionStatus();
-    })
+    }
+  })
 
-    $("#right").click(function () {
-      if (confirm("確認此題答對?")) {
-        // $(`.${ans}`).removeClass("question");
-        $(`.${ans}`).css({
-          backgroundColor: "#D4EDDA"
-        });
-        $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
-        $(`.${ans} .question-num`).hide();
-        $(`.${ans} .question-name`).html(`姓名: ${ans}`);
-        data[ans].status = "success";
-        syncData();
-        chooseQuestionStatus();
-      }
-    })
+  $("#wrong").click(function () {
+    if (confirm("確認此題答錯?")) {
+      $(`.${ans}`).css({
+        backgroundColor: "#F8D7DA"
+      });
+      $(`.${ans} img`).attr("src", "./img/people.png");
+      $(`.${ans} .question-num`).show();
+      $(`.${ans} .question-name`).html(`姓名: XXX`);
+      data[ans].status = "fail";
+      syncData();
+      chooseQuestionStatus();
+    }
+  })
 
-    $("#wrong").click(function () {
-      if (confirm("確認此題答錯?")) {
-        $(`.${ans}`).css({
-          backgroundColor: "#F8D7DA"
-        });
-        $(`.${ans} img`).attr("src", "./img/people.png");
-        $(`.${ans} .question-num`).show();
-        $(`.${ans} .question-name`).html(`姓名: XXX`);
-        data[ans].status = "fail";
-        syncData();
-        chooseQuestionStatus();
-      }
-    })
+  $("#seeAns").click(function () {
+    alert(ans);
+  })
 
-    $("#seeAns").click(function () {
-      alert(ans);
-    })
+  // 若是音檔則避免沒有暫停就關掉 modal 導致背景持續撥放
+  $('#showGuessElement').on('hidden.bs.modal', function (e) {
+    $("#showGuessElement .modal-body").html("");
+  })
 
-    // 若是音檔則避免沒有暫停就關掉 modal 導致背景持續撥放
-    $('#showGuessElement').on('hidden.bs.modal', function (e) {
-      $("#showGuessElement .modal-body").html("");
-    })
-  }
-});
+  // 已解鎖素材
+  $(document).on('click', '.unlock-img', function (e) {
+    reloadLightBox(unlockPhoto);
+  })
+
+  // 當前轉出之圖片
+  $(document).on('click', '.question-img', function (e) {
+    reloadLightBox(questionPhoto);
+  })
+}
