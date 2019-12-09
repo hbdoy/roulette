@@ -16,7 +16,7 @@ var originData = {
                 color: '#209b6c',
                 text: '困難',
                 fileType: "image",
-                fileName: "test.jpg",
+                fileName: "test2.jpg",
                 show: true
             },
             {
@@ -106,7 +106,7 @@ var originData = {
                 color: '#209b6c',
                 text: '困難',
                 fileType: "image",
-                fileName: "test.jpg",
+                fileName: "test2.jpg",
                 show: true
             },
             {
@@ -196,7 +196,7 @@ var originData = {
                 color: '#209b6c',
                 text: '困難',
                 fileType: "image",
-                fileName: "test.jpg",
+                fileName: "test2.jpg",
                 show: true
             },
             {
