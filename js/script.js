@@ -139,7 +139,7 @@ var questionPhoto = [];
         }
 
         // 列出已解鎖素材
-        function showUsedMedia() {
+        async function showUsedMedia() {
           let contentImg = "";
           let contentAudio = "";
           let contentText = "";
@@ -148,10 +148,11 @@ var questionPhoto = [];
             if (!item.show) {
               if (item.fileType == "image") {
                 contentImg += `<div class='col-12 col-md-3'><img class='img-fluid unlock-img' src='./media/${ans}/${item.fileName}'></div>`;
+                var [width, height] = await getImgRealSize(`./media/${ans}/${item.fileName}`);
                 unlockPhoto.push({
                   src: `./media/${ans}/${item.fileName}`,
-                  w: 1000,
-                  h: 1000
+                  w: width,
+                  h: height
                 });
               } else if (item.fileType == "audio") {
                 contentAudio += `<div class='col-12 col-md-4'><audio controls><source src="./media/${ans}/${item.fileName}" type="audio/mpeg"></audio></div>`;
@@ -166,14 +167,15 @@ var questionPhoto = [];
         }
 
         // 顯示新抽出之提示素材
-        function createQueModalContent(index) {
+        async function createQueModalContent(index) {
           let content = "";
           if (data[ans].data[index].fileType == "image") {
             content = `<img class='img-fluid question-img' src='./media/${ans}/${data[ans].data[index].fileName}'>`;
+            var [width, height] = await getImgRealSize(`./media/${ans}/${data[ans].data[index].fileName}`);
             questionPhoto = [{
               src: `./media/${ans}/${data[ans].data[index].fileName}`,
-              w: 1000,
-              h: 1000
+              w: width,
+              h: height
             }];
           } else if (data[ans].data[index].fileType == "audio") {
             content = `<audio controls><source src="./media/${ans}/${data[ans].data[index].fileName}" type="audio/mpeg"></audio>`;
@@ -244,6 +246,20 @@ var reloadLightBox = function (photos = items) {
   var pswpElement = document.querySelectorAll('.pswp')[0];
   var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, photos);
   gallery.init();
+}
+
+// 因為 lightbox 需要預先定義圖片的寬高
+// use promise return img "real" width and height until that loaded
+function getImgRealSize(path) {
+  return new Promise((resolve, reject) => {
+    var img = new Image();
+    img.src = path;
+    img.onload = function () {
+      var width = img.naturalWidth;
+      var height = img.naturalHeight;
+      resolve([width, height]);
+    }
+  });
 }
 
 function eventBind() {
