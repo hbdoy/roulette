@@ -144,10 +144,11 @@ var questionPhoto = [];
           let contentAudio = "";
           let contentText = "";
           unlockPhoto = [];
-          for (let item of data[ans].data) {
+          for (let i = 0; i < data[ans].data.length; i++) {
+            let item = data[ans].data[i];
             if (!item.show) {
               if (item.fileType == "image") {
-                contentImg += `<div class='col-12 col-md-3'><img class='img-fluid unlock-img' src='./media/${ans}/${item.fileName}'></div>`;
+                contentImg += `<div class='col-12 col-md-3'><img data-pid="${i}" class='img-fluid unlock-img' src='./media/${ans}/${item.fileName}'></div>`;
                 var [width, height] = await getImgRealSize(`./media/${ans}/${item.fileName}`);
                 unlockPhoto.push({
                   src: `./media/${ans}/${item.fileName}`,
@@ -191,7 +192,6 @@ var questionPhoto = [];
 })(jQuery);
 
 $(function () {
-  $('#allQuestion').hide();
   chooseQuestionStatus();
   createQuestion();
   eventBind();
@@ -223,7 +223,6 @@ function createQuestion() {
       });
     }
   })
-  $('#allQuestion').show();
 }
 
 // 選題狀態
@@ -242,9 +241,13 @@ function ansQuestionStatus() {
 }
 
 // photo light box
-var reloadLightBox = function (photos = items) {
+var reloadLightBox = function (photos = items, index = 0) {
   var pswpElement = document.querySelectorAll('.pswp')[0];
-  var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, photos);
+  var options = {
+    // start at first slide
+    index
+  };
+  var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, photos, options);
   gallery.init();
 }
 
@@ -322,7 +325,7 @@ function eventBind() {
 
   // 已解鎖素材
   $(document).on('click', '.unlock-img', function (e) {
-    reloadLightBox(unlockPhoto);
+    reloadLightBox(unlockPhoto, $(this).data("pid"));
   })
 
   // 當前轉出之圖片
