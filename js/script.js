@@ -144,11 +144,12 @@ var questionPhoto = [];
           let contentAudio = "";
           let contentText = "";
           unlockPhoto = [];
+          let pid = 0;
           for (let i = 0; i < data[ans].data.length; i++) {
             let item = data[ans].data[i];
             if (!item.show) {
               if (item.fileType == "image") {
-                contentImg += `<div class='col-12 col-md-3'><img data-pid="${i}" class='img-fluid unlock-img' src='./media/${ans}/${item.fileName}'></div>`;
+                contentImg += `<div class='col-12 col-md-3'><img data-pid="${pid++}" class='img-fluid unlock-img' src='./media/${ans}/${item.fileName}'></div>`;
                 var [width, height] = await getImgRealSize(`./media/${ans}/${item.fileName}`);
                 unlockPhoto.push({
                   src: `./media/${ans}/${item.fileName}`,
@@ -242,10 +243,23 @@ function ansQuestionStatus() {
 
 // photo light box
 var reloadLightBox = function (photos = items, index = 0) {
+  console.log(index);
   var pswpElement = document.querySelectorAll('.pswp')[0];
   var options = {
     // start at first slide
-    index
+    index,
+    // getDoubleTapZoom: function (isMouseClick, item) {
+    //   if (isMouseClick) {
+    //     // is mouse click on image or zoom icon
+    //     // zoom to original
+    //     return 1;
+    //   } else {
+    //     // is double-tap
+    //     // zoom to original if initial zoom is less than 0.7x,
+    //     // otherwise to 1.5x, to make sure that double-tap gesture always zooms image
+    //     return item.initialZoomLevel < 0.7 ? 4 : 4;
+    //   }
+    // }
   };
   var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, photos, options);
   gallery.init();
