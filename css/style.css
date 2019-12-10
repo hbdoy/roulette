@@ -176,3 +176,8 @@ blockquote {
 .unlock-img, .question-img {
 	cursor: pointer;
 }
+
+/* photo swipe 在圖片顯示寬度與設定長寬相符時，將不會出現放大鏡 */
+.pswp__button--zoom {
+	display: block !important;
+}
