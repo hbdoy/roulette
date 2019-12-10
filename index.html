@@ -53,7 +53,6 @@
 			<div class="row">
 				<div class="col-12">
 					<button id="goIndex" class="btn btn-secondary">回首頁</button>
-					<button id="right" class="btn btn-success">答對</button>
 					<button id="wrong" class="btn btn-danger">答錯</button>
 					<button id="seeAns" class="btn btn-info">看答案</button>
 				</div>
@@ -96,15 +95,30 @@
 				</div>
 			</div>
 		</div>
-		<!-- Modal -->
+		<!-- Question Modal -->
 		<div class="modal fade" id="showGuessElement" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			aria-labelledby="guessModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalCenterTitle">
+						<h5 class="modal-title" id="guessModalCenterTitle">
 							猜猜我是誰 &lt;3
 						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body text-center"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Answer Modal -->
+		<div class="modal fade" id="showAnsElement" tabindex="-1" role="dialog"
+			aria-labelledby="ansModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="ansModalCenterTitle"></h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>

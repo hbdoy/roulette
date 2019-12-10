@@ -285,21 +285,6 @@ function eventBind() {
     chooseQuestionStatus();
   })
 
-  $("#right").click(function () {
-    if (confirm("確認此題答對?")) {
-      // $(`.${ans}`).removeClass("question");
-      $(`.${ans}`).css({
-        backgroundColor: "#D4EDDA"
-      });
-      $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
-      $(`.${ans} .question-num`).hide();
-      $(`.${ans} .question-name`).html(`姓名: ${ans}`);
-      data[ans].status = "success";
-      syncData();
-      chooseQuestionStatus();
-    }
-  })
-
   $("#wrong").click(function () {
     if (confirm("確認此題答錯?")) {
       $(`.${ans}`).css({
@@ -315,12 +300,29 @@ function eventBind() {
   })
 
   $("#seeAns").click(function () {
-    alert(ans);
+    if (confirm("確定要看答案?")) {
+      $("#ansModalCenterTitle").html(`Hi 我是 ${ans}`);
+      $("#showAnsElement .modal-body").html(`<img class="img-fluid" src="./img/user/${data[ans].photo}">`);
+      $("#showAnsElement").modal();
+      $(`.${ans}`).css({
+        backgroundColor: "#D4EDDA"
+      });
+      $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
+      $(`.${ans} .question-num`).hide();
+      $(`.${ans} .question-name`).html(`姓名: ${ans}`);
+      data[ans].status = "success";
+      syncData();
+    }
   })
 
   // 若是音檔則避免沒有暫停就關掉 modal 導致背景持續撥放
   $('#showGuessElement').on('hidden.bs.modal', function (e) {
     $("#showGuessElement .modal-body").html("");
+  })
+
+  // 看完答案跳回首頁
+  $('#showAnsElement').on('hidden.bs.modal', function (e) {
+    chooseQuestionStatus();
   })
 
   // 已解鎖素材
