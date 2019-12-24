@@ -178,6 +178,15 @@ blockquote {
 }
 
 /* photo swipe 在圖片顯示寬度與設定長寬相符時，將不會出現放大鏡 */
+
 .pswp__button--zoom {
 	display: block !important;
+}
+
+.index-person-photo {
+	display: inline-block;
+	width: 180px;
+	height: 230px;
+	background-size: cover;
+	background-repeat: no-repeat;
 }

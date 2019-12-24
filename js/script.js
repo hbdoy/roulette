@@ -206,7 +206,7 @@ function createQuestion() {
     content += `<div class='col-md-4 col'>
           <div class='question ${item} my-2' data-ans='${item}' data-status='${data[item].status}'>
             <div class="question-num ${data[item].status == "success" ? "hide" : ""}">${i++}</div>
-            <img width='180px' height='230px' src='${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}'>
+            <div class="index-person-photo" style="background-image: url('${data[item].status == "success" ? "./img/user/" + data[item].photo : "./img/people.png"}');"></div>
             <div class="question-name">姓名: ${data[item].status == "success" ? item : "XXX"}</div>
           </div>
         </div>`;
@@ -315,7 +315,7 @@ function eventBind() {
       $(`.${ans}`).css({
         backgroundColor: "#D4EDDA"
       });
-      $(`.${ans} img`).attr("src", `./img/user/${data[ans].photo}`);
+      $(`.${ans} .index-person-photo`).css("backgroundImage", `url('./img/user/${data[ans].photo}')`);
       $(`.${ans} .question-num`).hide();
       $(`.${ans} .question-name`).html(`姓名: ${ans}`);
       data[ans].status = "success";
