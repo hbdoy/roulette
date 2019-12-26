@@ -2,6 +2,7 @@ var ans = "";
 var items = [];
 var unlockPhoto = [];
 var questionPhoto = [];
+var timer;
 
 (function ($) {
   $.fn.extend({
@@ -78,6 +79,7 @@ var questionPhoto = [];
 
 
         $btnStart.on("click", function () {
+          stopTimer();
           rotation();
         });
 
@@ -112,6 +114,24 @@ var questionPhoto = [];
               data[ans].data[index].show = false;
               syncData();
               showUsedMedia();
+              // 倒數計時
+              (function () {
+                var timeFlag = Date.now();
+                var originTimer = 30;
+                var timeText = originTimer;
+                $("#countDownSec").html(originTimer);
+                $("#countDown").show();
+
+                timer = setInterval(function () {
+                  $("#countDownSec").html(--timeText);
+                  var now = Date.now();
+                  var distance = now - timeFlag;
+                  // the count down is finished
+                  if (distance > originTimer * 1000) {
+                    clearInterval(timer);
+                  }
+                }, 1000)
+              })();
               createQueModalContent(index);
               // alert("pop up: , " + data[ans].data[index].text);
             },
@@ -273,6 +293,11 @@ function getImgRealSize(path) {
   });
 }
 
+function stopTimer() {
+  clearInterval(timer);
+  $("#countDown").hide();
+}
+
 function eventBind() {
   $('.resetBtn').click(function () {
     if (confirm("確定要重製資料嗎?")) {
@@ -325,6 +350,7 @@ function eventBind() {
 
   // 若是音檔則避免沒有暫停就關掉 modal 導致背景持續撥放
   $('#showGuessElement').on('hidden.bs.modal', function (e) {
+    stopTimer();
     $("#showGuessElement .modal-body").html("");
   })
 
