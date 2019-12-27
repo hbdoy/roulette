@@ -43,10 +43,17 @@ var originData = {
 
 ![](https://i.imgur.com/Ce9pzKt.jpg)
 
+5. 方便計算答題時間，抽出素材時顯示倒數計時
 
-5. 抽取的資料狀態存放在 localstorage，請確認瀏覽器/版本支援
+![](https://i.imgur.com/YiTzhjC.jpg)
+
+6. 抽取的資料狀態存放在 localstorage，請確認瀏覽器/版本支援
 
 ## Update Log
+[2019/12/27]:
+- 轉盤出現題目後新增倒數計時
+- 處理小型裝置上輪盤寬度超過 100%
+
 [2019/12/08]:
 - lightbox 顯示圖片
 
@@ -60,9 +67,10 @@ var originData = {
 
 ## Library
 - jQuery
-- jquery-rotate
+- jQuery-rotate
 - Bootstrap
 - [PhotoSwipe](https://github.com/dimsemenov/PhotoSwipe)
+- [FlipClock](https://github.com/objectivehtml/FlipClock)
 
 ## License
 [MIT](LICENSE)
