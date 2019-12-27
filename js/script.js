@@ -3,6 +3,7 @@ var items = [];
 var unlockPhoto = [];
 var questionPhoto = [];
 var timer;
+var clock;
 
 (function ($) {
   $.fn.extend({
@@ -114,24 +115,7 @@ var timer;
               data[ans].data[index].show = false;
               syncData();
               showUsedMedia();
-              // 倒數計時
-              (function () {
-                var timeFlag = Date.now();
-                var originTimer = 30;
-                var timeText = originTimer;
-                $("#countDownSec").html(originTimer);
-                $("#countDown").show();
-
-                timer = setInterval(function () {
-                  $("#countDownSec").html(--timeText);
-                  var now = Date.now();
-                  var distance = now - timeFlag;
-                  // the count down is finished
-                  if (distance > originTimer * 1000) {
-                    clearInterval(timer);
-                  }
-                }, 1000)
-              })();
+              startCounter(30);
               createQueModalContent(index);
               // alert("pop up: , " + data[ans].data[index].text);
             },
@@ -207,12 +191,33 @@ var timer;
           $("#showGuessElement .modal-body").html(content);
           $("#showGuessElement").modal();
         }
+
+        // 倒數計時
+        function startCounter(sec = 30) {
+          var timeFlag = Date.now();
+          var originTimer = sec;
+          clock.setValue(originTimer);
+          $("#countDown").show();
+
+          timer = setInterval(function () {
+            clock.decrement();
+            var now = Date.now();
+            var distance = now - timeFlag;
+            // the count down is finished
+            if (distance > originTimer * 1000) {
+              clearInterval(timer);
+            }
+          }, 1000)
+        };
       });
     }
   });
 })(jQuery);
 
 $(function () {
+  clock = $('#countDown').FlipClock({
+    clockFace: 'Counter'
+  });
   chooseQuestionStatus();
   createQuestion();
   eventBind();
